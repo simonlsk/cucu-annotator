@@ -290,7 +290,10 @@ export default {
         category: this.index
       };
       this.$emit("click", indices);
-
+      // re-enumerate all compoundPaths Ids
+      // for (let i = 0; i < this.$children.length; i++){
+      //   this.$children[i].compoundPath.data.annotationId = i
+      // }
       if (this.category.annotations.length === 0) this.isVisible = false;
     }
   },

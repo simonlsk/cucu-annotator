@@ -6,6 +6,7 @@
         <hr>
         
         <SelectTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="select" />
+        <MoverTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="mover"/>
         <hr>
 
         <PolygonTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="polygon" />
@@ -13,6 +14,8 @@
 
         <BrushTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="brush" />
         <EraserTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="eraser" />
+        <MergerTool v-model="activeTool" :scale="image.scale" @setcursor="setCursor" ref="merger"/>
+
       </div>
       <hr>
 
@@ -116,9 +119,11 @@ import Label from "@/components/annotator/Label";
 
 import PolygonTool from "@/components/annotator/tools/PolygonTool";
 import SelectTool from "@/components/annotator/tools/SelectTool";
+import MoverTool from "@//components/annotator/tools/MoverTool";
 import MagicWandTool from "@/components/annotator/tools/MagicWandTool";
 import EraserTool from "@/components/annotator/tools/EraserTool";
 import BrushTool from "@/components/annotator/tools/BrushTool";
+import MergerTool from "@/components/annotator/tools/MergerTool";
 
 import CenterButton from "@/components/annotator/tools/CenterButton";
 
@@ -148,6 +153,8 @@ export default {
     PolygonTool,
     PolygonPanel,
     SelectTool,
+    MoverTool,
+    MergerTool,
     MagicWandTool,
     EraserTool,
     BrushTool,

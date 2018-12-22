@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 volumes:
     mongodb_data:
         external: false
@@ -8,7 +8,7 @@ networks:
 
 services:
     frontend:
-        container_name: annotator_client
+        container_name: annotator_client2
         build:
             context: .
             dockerfile: ./docker/client/Dockerfile
@@ -21,8 +21,9 @@ services:
             - cocoannotator
         depends_on:
             - flask
+        mem_limit: 500000000
     flask:
-        container_name: annotator_flask
+        container_name: annotator_flask2
         build:
             context: .
             dockerfile: ./docker/api/Dockerfile
@@ -40,9 +41,10 @@ services:
             - cocoannotator
         depends_on:
             - database
+        mem_limit: 500000000
     database:
         image: mongo:latest
-        container_name: annotator_mongodb
+        container_name: annotator_mongodb2
         environment:
             - MONGO_DATA_DIR=/data/db
             - MONGO_LOG_DIR=/dev/null
@@ -50,6 +52,7 @@ services:
             - 'mongodb_data:/data/db'
         ports:
             - '27017:27017'
+        mem_limit: 500000000
         command: 'mongod --smallfiles --logpath=/dev/null'
         networks:
             - cocoannotator

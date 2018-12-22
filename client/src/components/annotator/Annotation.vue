@@ -188,8 +188,18 @@ export default {
       axios.delete("/api/annotation/" + this.annotation.id).then(() => {
         this.$parent.category.annotations.splice(this.index, 1);
         this.$emit("deleted", this.index);
-
-        if (this.compoundPath != null) this.compoundPath.remove();
+        if (this.compoundPath != null){
+          this.compoundPath.remove();
+          this.$parent.$children.splice(this.index, 1)
+        }
+        // re-enumerate all annotation Ids
+        let test = 0;
+        // for (let i = 0; i < this.$children.length; i++){
+        //   this.$children[i].compoundPath.data.annotationId = i;
+        // }
+        for (let i = 0; i < this.$parent.$children.length; i++){
+          this.$parent.$children[i].compoundPath.data.annotationId = i
+        }
       });
     },
     onAnnotationClick() {
@@ -236,6 +246,8 @@ export default {
       this.compoundPath = this.pervious.pop();
     },
     unite(compound) {
+      
+      // compound.data.annotationId = this.compoundPath.data.annotationId; 
       if (this.compoundPath == null) this.createCompoundPath();
 
       let newCompound = this.compoundPath.unite(compound);

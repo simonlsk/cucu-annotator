@@ -157,6 +157,8 @@ export default {
             child.data.hasOwnProperty("annotationId")
           ) {
             this.hover.position = event.point;
+
+            // this.$parent.hover.annotation = child.index;
             this.$parent.hover.annotation = child.data.annotationId;
 
             this.hover.annotation = this.hover.category.getAnnotation(
