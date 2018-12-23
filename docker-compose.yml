@@ -21,7 +21,7 @@ services:
             - cocoannotator
         depends_on:
             - flask
-        mem_limit: 500000000
+        mem_limit: 1000000000
     flask:
         container_name: annotator_flask2
         build:
@@ -41,7 +41,7 @@ services:
             - cocoannotator
         depends_on:
             - database
-        mem_limit: 500000000
+        mem_limit: 1000000000
     database:
         image: mongo:latest
         container_name: annotator_mongodb2
@@ -52,7 +52,7 @@ services:
             - 'mongodb_data:/data/db'
         ports:
             - '27017:27017'
-        mem_limit: 500000000
+        mem_limit: 1000000000
         command: 'mongod --smallfiles --logpath=/dev/null'
         networks:
             - cocoannotator

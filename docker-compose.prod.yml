@@ -4,7 +4,7 @@ volumes:
         external: false
 services:
     flask:
-        container_name: annotator_flask
+        container_name: annotator_flask3
         restart: always
         build:
             context: .
@@ -23,7 +23,7 @@ services:
             - database
     database:
         image: mongo:latest
-        container_name: annotator_mongodb
+        container_name: annotator_mongodb3
         restart: always
         environment:
             - MONGO_DATA_DIR=/data/db
