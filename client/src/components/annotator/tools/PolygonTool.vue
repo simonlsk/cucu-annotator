@@ -62,7 +62,8 @@ export default {
 
       this.actionPoints++;
       this.polygon.path.add(event.point);
-      this.autoComplete(30);
+      let autoComplete_scale = 30 / this.$parent.paper.view.zoom
+      this.autoComplete(autoComplete_scale);
     },
     onMouseDown(event) {
       let wasNull = false;
