@@ -1,10 +1,10 @@
 import json
 # import numpy as np
 
-BASE_DIR = '/home/nomios/Documents/Projects/deep/cucumber/dataset/fruit'
+BASE_DIR = '/home/simon/Documents/cucumber/original dataset/2018_05_31_09_02_segmentation_task_8_leaf_cucumber_KIM'
 fileName = 'segmentation_results.json'
 annPath = BASE_DIR + '/' + fileName
-sample_value = 30
+sample_value = 50
 new_json = open("new_json.json", "w")
 
 with open(annPath, "r") as segmentation_file:

@@ -7,7 +7,7 @@ class Config:
     VERSION = "0.1"
 
     SWAGGER_UI_JSONEDITOR = True
-    MAX_CONTENT_LENGTH = 1 * 1024 * 1024 * 1024  # 1GB
+    # MAX_CONTENT_LENGTH = 1 * 1024 * 1024 * 1024  # 1GB
     MONGODB_HOST = os.getenv("MONGODB_HOST", "mongodb://database/flask")
 
     TESTING = os.getenv("TESTING", False)

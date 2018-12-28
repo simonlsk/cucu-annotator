@@ -335,7 +335,7 @@ export default {
     },
 
     initCanvas() {
-      let process = "Initalizing canvas";
+      let process = "Initializing canvas";
       this.addProcess(process);
       this.loading.image = true;
 
