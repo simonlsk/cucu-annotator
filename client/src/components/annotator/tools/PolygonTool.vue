@@ -62,8 +62,8 @@ export default {
 
       this.actionPoints++;
       this.polygon.path.add(event.point);
-      let autoComplete_scale = 30 / this.$parent.paper.view.zoom
-      this.autoComplete(autoComplete_scale);
+      // let autoComplete_scale = 30 / this.$parent.paper.view.zoom
+      this.autoComplete(30);
     },
     onMouseDown(event) {
       let wasNull = false;
@@ -125,8 +125,9 @@ export default {
 
       let last = this.polygon.path.lastSegment.point;
       let first = this.polygon.path.firstSegment.point;
+      // let autoComplete_scale = 30 / this.$parent.paper.view.zoom
 
-      let completeDistance = this.polygon.completeDistance;
+      let completeDistance = this.polygon.completeDistance / this.$parent.paper.view.zoom;
       if (last.isClose(first, completeDistance)) {
         return this.complete();
       }
