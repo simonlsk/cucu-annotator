@@ -34,23 +34,33 @@ def decodeSeg(mask, segmentation):
 
 def generate_thumbnail(image_model, save=True):
 
+
+    try:
+        image = Image.open(image_model.thumbnail_path())
+        if image is not None:
+            return image
+    except Exception as e:
+        print("thumbnail not found, creating...")
+
+
     image = Image.open(image_model.path)
     binary_image = np.array(image)
     binary_image.setflags(write=True)
 
-    annotations = AnnotationModel.objects(image_id=image_model.id, deleted=False).all()
-
-    for annotation in annotations:
-
-        if len(annotation.segmentation) == 0:
-            continue
-
-        color = np.array(hex_to_rgb(annotation.color))/255
-
-        mask = np.zeros((image.height, image.width))
-        decodeSeg(mask, annotation.segmentation)
-
-        binary_image = apply_mask(binary_image, mask, color)
+    # for now don't apply masks to thumbnails
+    # annotations = AnnotationModel.objects(image_id=image_model.id, deleted=False).all()
+    #
+    # for annotation in annotations:
+    #
+    #     if len(annotation.segmentation) == 0:
+    #         continue
+    #
+    #     color = np.array(hex_to_rgb(annotation.color))/255
+    #
+    #     mask = np.zeros((image.height, image.width))
+    #     decodeSeg(mask, annotation.segmentation)
+    #
+    #     binary_image = apply_mask(binary_image, mask, color)
 
     image = Image.fromarray(binary_image)
 
