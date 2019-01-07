@@ -91,6 +91,9 @@
 
         </div>
       </div>
+      <div>
+        <ZoomPannel />
+      </div>
     </aside>
 
     <div class="middle-panel" :style="{ cursor: cursor }">
@@ -141,6 +144,8 @@ import SelectPanel from "@/components/annotator/panels/SelectPanel";
 import MagicWandPanel from "@/components/annotator/panels/MagicWandPanel";
 import BrushPanel from "@/components/annotator/panels/BrushPanel";
 import EraserPanel from "@/components/annotator/panels/EraserPanel";
+import ZoomPannel from "@/components/annotator/panels/ZoomPannel";
+
 
 import { mapMutations } from "vuex";
 
@@ -167,6 +172,7 @@ export default {
     MagicWandPanel,
     BrushPanel,
     EraserPanel,
+    ZoomPannel,
     ModeButton,
     UndoButton,
     HideAllButton,
