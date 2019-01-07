@@ -12,7 +12,7 @@ export default {
     }
   },
   template:
-    "<div><i v-tooltip.right='tooltip' class='fa fa-x' :class='icon' :style='{ color: iconColor }' @click='click'></i><br></div>",
+    "<div><i v-tooltip.right='tooltip' class='fa fa-x' :class='icon' :style='{ color: iconColor }' v-touch:tap='click'></i><br></div>",
   data() {
     return {
       tool: null,

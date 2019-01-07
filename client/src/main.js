@@ -5,6 +5,7 @@ import store from "./store";
 import VueToastr2 from "vue-toastr-2";
 import paper from "paper";
 import VTooltip from "v-tooltip";
+import Vue2TouchEvents from 'vue2-touch-events'
 
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,6 +18,7 @@ paper.install(window);
 window.toastr = require("toastr");
 Vue.use(VueToastr2);
 Vue.use(VTooltip);
+Vue.use(Vue2TouchEvents);
 
 new Vue({
   router,
